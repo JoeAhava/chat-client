@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
+import { AuthCTX } from "../context";
 // import {} from "@heroicons/react";
 export default function ChatContainer() {
+	const [auth, setUser] = useContext(AuthCTX)
 	return (
 		<div class="container mx-auto">
 			<div class="max-w-2xl border rounded">
@@ -9,7 +11,7 @@ export default function ChatContainer() {
 						<div class="relative flex items-center p-3 border-b border-gray-300">
 							<img
 								class="object-cover w-10 h-10 rounded-full"
-								src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg"
+								src={auth.user.imageURL}
 								alt="username"
 							/>
 							<span class="block ml-2 font-bold text-gray-600">Emma</span>
